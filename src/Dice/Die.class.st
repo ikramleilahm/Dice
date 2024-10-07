@@ -9,7 +9,7 @@ Class {
 
 { #category : #'as yet unclassified' }
 Die class >> withFaces: aNumber [
-	"this is a class method !! that creates and initializes a new die with 	aNumber faces"
+	"this is a class method !! that creates and initializes a new die with aNumber faces"
 	| instance |
 	instance := self new.
 	instance faces: aNumber.
@@ -35,6 +35,16 @@ Die >> faces: anInteger [
 Die >> initialize [ 
 	super initialize.
 	faces := 6
+]
+
+{ #category : #printing }
+Die >> printOn: aStream [
+
+	super printOn: aStream.
+	aStream
+		nextPutAll: '(' ;
+		print: faces ;
+		nextPutAll: ')'
 ]
 
 { #category : #'as yet unclassified' }
