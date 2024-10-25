@@ -36,3 +36,20 @@ DieHandleTest >> testRoll [
 		          yourself.
 	1000 timesRepeat: [ handle roll between: 2 and: 16 ]
 ]
+
+{ #category : #tests }
+DieHandleTest >> testSumOfHandles [
+|hd1 hd2 hd3|
+hd1 := DieHandle new 
+	addDie: (Die withFaces: 20);
+	addDie: (Die withFaces: 20); yourself.
+
+hd2 := DieHandle new 
+	addDie: (Die withFaces: 10);
+	addDie: (Die withFaces: 10); yourself.
+	
+hd3 := hd1 + hd2.
+self assert: hd3 diceNumber equals: 4.
+
+	
+]

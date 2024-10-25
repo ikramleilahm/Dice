@@ -7,11 +7,34 @@ Class {
 	#category : #Dice
 }
 
+{ #category : #arithmetic }
+DieHandle >> + aDieHandle [
+
+	| newHandle |
+	newHandle := DieHandle new.
+	newHandle dice: (self dice copyWithAll: aDieHandle dice).
+	^ newHandle
+	
+
+]
+
 { #category : #adding }
 DieHandle >> addDie: aDie [
 	dice add: aDie
 
 
+]
+
+{ #category : #accessing }
+DieHandle >> dice [
+
+	^ dice
+]
+
+{ #category : #accessing }
+DieHandle >> dice: anObject [
+
+	dice := anObject
 ]
 
 { #category : #'as yet unclassified' }
