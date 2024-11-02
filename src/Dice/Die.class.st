@@ -20,6 +20,13 @@ Die class >> withFaces: aNumber [
 	
 ]
 
+{ #category : #arithmetic }
+Die >> + aDiecable [
+^ aDiecable sumWithDie: self
+
+
+]
+
 { #category : #accessing }
 Die >> faces [ 
 ^ faces 
@@ -51,4 +58,22 @@ Die >> printOn: aStream [
 Die >> roll [ 
 " use atRandom method that returns a nb betw one and the receiver"
 	^ faces atRandom 
+]
+
+{ #category : #'as yet unclassified' }
+Die >> sumWithDie: aDie [
+^ DieHandle new
+addDie: self;
+addDie: aDie; yourself
+]
+
+{ #category : #arithmetic }
+Die >> sumWithHandle: aDieHandle [
+ | hd |
+hd := DieHandle new.
+aDieHandle dice
+ do: [ :each | hd addDie: each ].
+hd addDie: self.
+^ hd
+
 ]

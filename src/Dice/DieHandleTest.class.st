@@ -5,6 +5,17 @@ Class {
 }
 
 { #category : #tests }
+DieHandleTest >> testAddingAHandleWithADie [
+| handle res |
+handle := DieHandle new
+addDie: (Die withFaces: 6);
+addDie: (Die withFaces: 10);
+yourself.
+res := handle + (Die withFaces: 20).
+self assert: res diceNumber equals: 3
+]
+
+{ #category : #tests }
 DieHandleTest >> testAddingTwiceTheSameDice [
 	| handle |
 	handle := DieHandle new.
@@ -25,6 +36,16 @@ DieHandleTest >> testCreationAdding [
 		yourself.
 	self assert: handle diceNumber equals: 2.
 	
+]
+
+{ #category : #tests }
+DieHandleTest >> testNumberOfFaces [
+| hd |
+hd := (DieHandle new
+addDie: (Die withFaces: 10);
+addDie: (Die withFaces: 6);
+yourself).
+self assert: hd faces equals: 16
 ]
 
 { #category : #tests }

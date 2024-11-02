@@ -5,6 +5,28 @@ Class {
 }
 
 { #category : #tests }
+DieTest >> testAddADieAndHandle [
+	| hd |
+	hd := (Die withFaces: 6)
+	+
+	(DieHandle new 
+	addDie: (Die withFaces: 10);
+	yourself).
+	
+	self assert: hd diceNumber equals: 2
+	
+]
+
+{ #category : #tests }
+DieTest >> testAddTwoDice [
+	| hd |
+	hd := (Die withFaces: 6) + (Die withFaces: 6).
+	self assert: hd diceNumber equals: 2.
+	
+	
+]
+
+{ #category : #tests }
 DieTest >> testCreationIsOk [ 
 self assert: (Die withFaces: 20) faces equals: 20
 
